@@ -14,6 +14,7 @@
  * Three.js integration by zz85 http://twitter.com/blurspline
 */
 
+
 THREE.ShaderLib['sky'] = {
 
     uniforms: {
@@ -41,7 +42,7 @@ THREE.ShaderLib['sky'] = {
         "varying vec3 vBetaM;",
         "varying float vSunE;",
 
-        "const vec3 up = vec3(0.0, 1.0, 0.0);",
+        "const vec3 up = vec3(0.0, 0.0, 1.0);",
 
         // constants for atmospheric scattering
         "const float e = 2.71828182845904523536028747135266249775724709369995957;",
@@ -87,7 +88,7 @@ THREE.ShaderLib['sky'] = {
 
         "vSunE = sunIntensity(dot(vSunDirection, up));",
 
-        "vSunfade = 1.0-clamp(1.0-exp((sunPosition.y/450000.0)),0.0,1.0);",
+        "vSunfade = 1.0-clamp(1.0-exp((sunPosition.z/450000.0)),0.0,1.0);",
 
         "float rayleighCoefficient = rayleigh - (1.0 * (1.0-vSunfade));",
 
@@ -126,7 +127,7 @@ THREE.ShaderLib['sky'] = {
         // optical length at zenith for molecules
         "const float rayleighZenithLength = 8.4E3;",
         "const float mieZenithLength = 1.25E3;",
-        "const vec3 up = vec3(0.0, 1.0, 0.0);",
+        "const vec3 up = vec3(0.0, 0.0, 1.0);",
 
         "const float sunAngularDiameterCos = 0.999956676946448443553574619906976478926848692873900859324;",
         // 66 arc seconds -> degrees, and the cosine of that
@@ -182,8 +183,8 @@ THREE.ShaderLib['sky'] = {
 
         //nightsky
         "vec3 direction = normalize(vWorldPosition - cameraPos);",
-        "float theta = acos(direction.y); // elevation --> y-axis, [-pi/2, pi/2]",
-        "float phi = atan(direction.z, direction.x); // azimuth --> x-axis [-pi/2, pi/2]",
+        "float theta = acos(direction.z); // elevation --> y-axis, [-pi/2, pi/2]",
+        "float phi = atan(-direction.y, direction.x); // azimuth --> x-axis [-pi/2, pi/2]",
         "vec2 uv = vec2(phi, theta) / vec2(2.0*pi, pi) + vec2(0.5, 0.0);",
         "vec3 L0 = vec3(0.1) * Fex;",
 
@@ -207,23 +208,28 @@ THREE.ShaderLib['sky'] = {
 
 };
 
-THREE.Sky = function () {
 
-    var skyShader = THREE.ShaderLib["sky"];
-    var skyUniforms = THREE.UniformsUtils.clone(skyShader.uniforms);
+class Sky {
+    mesh: THREE.Mesh;
+    uniforms: any;
+    constructor() {
 
-    var skyMat = new THREE.ShaderMaterial({
-        fragmentShader: skyShader.fragmentShader,
-        vertexShader: skyShader.vertexShader,
-        uniforms: skyUniforms,
-        side: THREE.BackSide
-    });
+        var skyShader = THREE.ShaderLib["sky"];
+        var skyUniforms = THREE.UniformsUtils.clone(skyShader.uniforms);
 
-    var skyGeo = new THREE.SphereBufferGeometry(450000, 32, 15);
-    var skyMesh = new THREE.Mesh(skyGeo, skyMat);
+        var skyMat = new THREE.ShaderMaterial({
+            fragmentShader: skyShader.fragmentShader,
+            vertexShader: skyShader.vertexShader,
+            uniforms: skyUniforms,
+            side: THREE.BackSide
+        });
 
-    // Expose variables
-    this.mesh = skyMesh;
-    this.uniforms = skyUniforms;
+        var skyGeo = new THREE.SphereBufferGeometry(450000, 32, 15);
+        var skyMesh = new THREE.Mesh(skyGeo, skyMat);
+        skyMesh.rotateX(Math.PI / 2);
+        // Expose variables
+        this.mesh = skyMesh;
+        this.uniforms = skyUniforms;
 
-};
+    }
+}

@@ -603,6 +603,12 @@
     <Content Include="node_modules\three\src\Three.js" />
     <Content Include="node_modules\three\src\Three.Legacy.js" />
     <Content Include="packages.config" />
+    <TypeScriptCompile Include="node_modules\%40types\dat-gui\index.d.ts" />
+    <TypeScriptCompile Include="src\Sky\SkyShader.ts" />
+    <Content Include="test\js\controls\OrbitControls.js" />
+    <Content Include="test\js\Detector.js" />
+    <Content Include="test\js\libs\dat.gui.min.js" />
+    <Content Include="test\js\SkyShader.js" />
     <Content Include="test\webgl_shaders_sky.html" />
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />
@@ -733,6 +739,9 @@
     <Content Include="node_modules\%40types\three\package.json" />
     <Content Include="node_modules\%40types\three\README.md" />
     <Content Include="node_modules\%40types\three\types-metadata.json" />
+    <Content Include="node_modules\%40types\dat-gui\package.json" />
+    <Content Include="node_modules\%40types\dat-gui\README.md" />
+    <Content Include="node_modules\%40types\dat-gui\types-metadata.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

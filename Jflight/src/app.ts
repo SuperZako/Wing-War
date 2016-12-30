@@ -4,9 +4,17 @@
 ///<reference path="Jflight.ts" />
 ///<reference path="HUD.ts" />
 
+///<reference path="./Sky/SkyShader.ts" />
+
 // main
 // グローバル変数
+declare interface Promise<T> {
+    finally<U>(onFinally?: () => U | Promise<U>): Promise<U>;
+}
+
+
 var keyboard = new THREEx.KeyboardState();
+
 
 namespace Main {
     "use strict";
@@ -46,7 +54,7 @@ namespace Main {
         const VIEW_ANGLE: number = 90;
         const ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT;
         const NEAR = 0.1;
-        const FAR = 100000;
+        const FAR = 2000000;
 
         camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
         scene.add(camera);
@@ -107,7 +115,7 @@ namespace Main {
         // var skyBox = new THREE.Mesh(skyBoxGeometry, skyBoxMaterial);
 
         // scene.add(skyBox);
-        scene.fog = new THREE.FogExp2(0x9999ff, 0.00025);
+        // scene.fog = new THREE.FogExp2(0x9999ff, 0.00025);
 
         ////////////
         // CUSTOM //
@@ -130,7 +138,72 @@ namespace Main {
         // man = new Billboard(scene);
 
 
+        // Add Sky Mesh
+        var sky = new Sky();
+        scene.add(sky.mesh);
 
+        // Add Sun Helper
+        var sunSphere = new THREE.Mesh(
+            new THREE.SphereBufferGeometry(20000, 16, 8),
+            new THREE.MeshBasicMaterial({ color: 0xffffff })
+        );
+        //sunSphere.position.y = - 700000;
+        sunSphere.position.z = - 700000;
+        sunSphere.visible = false;
+        scene.add(sunSphere);
+
+
+        /// GUI
+
+        var effectController = {
+            turbidity: 10,
+            rayleigh: 2,
+            mieCoefficient: 0.005,
+            mieDirectionalG: 0.8,
+            luminance: 1,
+            inclination: /*0.49*/1, // elevation / inclination
+            azimuth: /*0.25*/0.7, // Facing front,
+            sun: ! true
+        };
+
+        var distance = 400000;
+
+        function guiChanged() {
+
+            var uniforms = sky.uniforms;
+            uniforms.turbidity.value = effectController.turbidity;
+            uniforms.rayleigh.value = effectController.rayleigh;
+            uniforms.luminance.value = effectController.luminance;
+            uniforms.mieCoefficient.value = effectController.mieCoefficient;
+            uniforms.mieDirectionalG.value = effectController.mieDirectionalG;
+
+            var theta = Math.PI * (effectController.inclination - 0.5);
+            var phi = 2 * Math.PI * (effectController.azimuth - 0.5);
+
+            sunSphere.position.x = distance * Math.cos(phi);
+            sunSphere.position./*y*/z = distance * Math.sin(phi) * Math.sin(theta);
+            sunSphere.position./*z*/y = -distance * Math.sin(phi) * Math.cos(theta);
+
+            sunSphere.visible = effectController.sun;
+
+            sky.uniforms.sunPosition.value.copy(sunSphere.position);
+
+            renderer.render(scene, camera);
+
+        }
+
+        var gui = new dat.GUI();
+
+        gui.add(effectController, "turbidity", 1.0, 20.0/*, 0.1*/).onChange(guiChanged);
+        gui.add(effectController, "rayleigh", 0.0, 4/*, 0.001*/).onChange(guiChanged);
+        gui.add(effectController, "mieCoefficient", 0.0, 0.1/*, 0.001*/).onChange(guiChanged);
+        gui.add(effectController, "mieDirectionalG", 0.0, 1/*, 0.001*/).onChange(guiChanged);
+        gui.add(effectController, "luminance", 0.0, 2).onChange(guiChanged);
+        gui.add(effectController, "inclination", 0, 1/*, 0.0001*/).onChange(guiChanged);
+        gui.add(effectController, "azimuth", 0, 1/*, 0.0001*/).onChange(guiChanged);
+        gui.add(effectController, "sun").onChange(guiChanged);
+
+        guiChanged();
         // var explosionTexture = new THREE.TextureLoader().load('images/explosion.jpg');
 
         // boomer = new TextureAnimator(explosionTexture, 4, 4, 16, 55); // texture, #horiz, #vert, #total, duration.
@@ -166,6 +239,8 @@ namespace Main {
 
     export function animate() {
         requestAnimationFrame(animate);
+
+        // 
         update();
         render();
     }

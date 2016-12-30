@@ -21,7 +21,7 @@
     // 使わない変数禁止 (注意：使用している変数でもエラーが出るので使用中止)
     "noUnusedLocals": true,
 
-    "noEmitOnError": true,
+    "noEmitOnError": false,
     "removeComments": false,
     "sourceMap": true,
     "outFile": "built/jflight.js",

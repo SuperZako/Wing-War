@@ -12,6 +12,7 @@
     "three": "^0.82.1"
   },
   "dependencies": {
+    "@types/dat-gui": "^0.6.1",
     "@types/three": "0.0.27"
   }
 }
