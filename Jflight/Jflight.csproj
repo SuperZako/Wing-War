@@ -1,0 +1,825 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.2\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.2\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{77507B23-8760-4EA6-8589-0435916957FC}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Jflight</RootNamespace>
+    <AssemblyName>Jflight</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile>built/Jflight.js</TypeScriptOutFile>
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.2\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\base.css" />
+    <Content Include="node_modules\three\build\three.js" />
+    <Content Include="node_modules\three\build\three.min.js" />
+    <Content Include="node_modules\three\build\three.modules.js" />
+    <Content Include="node_modules\three\examples\fonts\droid\README.txt" />
+    <Content Include="node_modules\three\examples\js\AnimationClipCreator.js" />
+    <Content Include="node_modules\three\examples\js\animation\CCDIKSolver.js" />
+    <Content Include="node_modules\three\examples\js\animation\MMDPhysics.js" />
+    <Content Include="node_modules\three\examples\js\BlendCharacter.js" />
+    <Content Include="node_modules\three\examples\js\BlendCharacterGui.js" />
+    <Content Include="node_modules\three\examples\js\BufferGeometryUtils.js" />
+    <Content Include="node_modules\three\examples\js\cameras\CinematicCamera.js" />
+    <Content Include="node_modules\three\examples\js\cameras\CombinedCamera.js" />
+    <Content Include="node_modules\three\examples\js\Car.js" />
+    <Content Include="node_modules\three\examples\js\Cloth.js" />
+    <Content Include="node_modules\three\examples\js\controls\DeviceOrientationControls.js" />
+    <Content Include="node_modules\three\examples\js\controls\DragControls.js" />
+    <Content Include="node_modules\three\examples\js\controls\EditorControls.js" />
+    <Content Include="node_modules\three\examples\js\controls\FirstPersonControls.js" />
+    <Content Include="node_modules\three\examples\js\controls\FlyControls.js" />
+    <Content Include="node_modules\three\examples\js\controls\MouseControls.js" />
+    <Content Include="node_modules\three\examples\js\controls\OrbitControls.js" />
+    <Content Include="node_modules\three\examples\js\controls\OrthographicTrackballControls.js" />
+    <Content Include="node_modules\three\examples\js\controls\PointerLockControls.js" />
+    <Content Include="node_modules\three\examples\js\controls\TrackballControls.js" />
+    <Content Include="node_modules\three\examples\js\controls\TransformControls.js" />
+    <Content Include="node_modules\three\examples\js\controls\VRControls.js" />
+    <Content Include="node_modules\three\examples\js\ConvexObjectBreaker.js" />
+    <Content Include="node_modules\three\examples\js\crossfade\gui.js" />
+    <Content Include="node_modules\three\examples\js\crossfade\scenes.js" />
+    <Content Include="node_modules\three\examples\js\crossfade\transition.js" />
+    <Content Include="node_modules\three\examples\js\CurveExtras.js" />
+    <Content Include="node_modules\three\examples\js\curves\NURBSCurve.js" />
+    <Content Include="node_modules\three\examples\js\curves\NURBSSurface.js" />
+    <Content Include="node_modules\three\examples\js\curves\NURBSUtils.js" />
+    <Content Include="node_modules\three\examples\js\Detector.js" />
+    <Content Include="node_modules\three\examples\js\effects\AnaglyphEffect.js" />
+    <Content Include="node_modules\three\examples\js\effects\AsciiEffect.js" />
+    <Content Include="node_modules\three\examples\js\effects\OutlineEffect.js" />
+    <Content Include="node_modules\three\examples\js\effects\ParallaxBarrierEffect.js" />
+    <Content Include="node_modules\three\examples\js\effects\PeppersGhostEffect.js" />
+    <Content Include="node_modules\three\examples\js\effects\StereoEffect.js" />
+    <Content Include="node_modules\three\examples\js\effects\VREffect.js" />
+    <Content Include="node_modules\three\examples\js\Encodings.js" />
+    <Content Include="node_modules\three\examples\js\exporters\OBJExporter.js" />
+    <Content Include="node_modules\three\examples\js\exporters\STLBinaryExporter.js" />
+    <Content Include="node_modules\three\examples\js\exporters\STLExporter.js" />
+    <Content Include="node_modules\three\examples\js\exporters\TypedGeometryExporter.js" />
+    <Content Include="node_modules\three\examples\js\geometries\ConvexGeometry.js" />
+    <Content Include="node_modules\three\examples\js\geometries\DecalGeometry.js" />
+    <Content Include="node_modules\three\examples\js\geometries\hilbert2D.js" />
+    <Content Include="node_modules\three\examples\js\geometries\hilbert3D.js" />
+    <Content Include="node_modules\three\examples\js\geometries\TeapotBufferGeometry.js" />
+    <Content Include="node_modules\three\examples\js\GPUComputationRenderer.js" />
+    <Content Include="node_modules\three\examples\js\GPUParticleSystem.js" />
+    <Content Include="node_modules\three\examples\js\Gyroscope.js" />
+    <Content Include="node_modules\three\examples\js\Half.js" />
+    <Content Include="node_modules\three\examples\js\ImprovedNoise.js" />
+    <Content Include="node_modules\three\examples\js\libs\ammo.js" />
+    <Content Include="node_modules\three\examples\js\libs\charsetencoder.min.js" />
+    <Content Include="node_modules\three\examples\js\libs\dat.gui.min.js" />
+    <Content Include="node_modules\three\examples\js\libs\earcut.js" />
+    <Content Include="node_modules\three\examples\js\libs\inflate.min.js" />
+    <Content Include="node_modules\three\examples\js\libs\jszip.min.js" />
+    <Content Include="node_modules\three\examples\js\libs\msgpack-js.js" />
+    <Content Include="node_modules\three\examples\js\libs\opentype.min.js" />
+    <Content Include="node_modules\three\examples\js\libs\pnltri.min.js" />
+    <Content Include="node_modules\three\examples\js\libs\stats.min.js" />
+    <Content Include="node_modules\three\examples\js\libs\system.min.js" />
+    <Content Include="node_modules\three\examples\js\libs\timeliner_gui.min.js" />
+    <Content Include="node_modules\three\examples\js\libs\tween.min.js" />
+    <Content Include="node_modules\three\examples\js\libs\zlib_and_gzip.min.js" />
+    <Content Include="node_modules\three\examples\js\loaders\3MFLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\AMFLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\AssimpJSONLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\AWDLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\BabylonLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\BinaryLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\BVHLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\ColladaLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\ColladaLoader2.js" />
+    <Content Include="node_modules\three\examples\js\loaders\collada\Animation.js" />
+    <Content Include="node_modules\three\examples\js\loaders\collada\AnimationHandler.js" />
+    <Content Include="node_modules\three\examples\js\loaders\collada\KeyFrameAnimation.js" />
+    <Content Include="node_modules\three\examples\js\loaders\ctm\ctm.js" />
+    <Content Include="node_modules\three\examples\js\loaders\ctm\CTMLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\ctm\CTMWorker.js" />
+    <Content Include="node_modules\three\examples\js\loaders\ctm\license\js-lzma.txt" />
+    <Content Include="node_modules\three\examples\js\loaders\ctm\license\js-openctm.txt" />
+    <Content Include="node_modules\three\examples\js\loaders\ctm\license\OpenCTM.txt" />
+    <Content Include="node_modules\three\examples\js\loaders\ctm\lzma.js" />
+    <Content Include="node_modules\three\examples\js\loaders\DDSLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\deprecated\gltf\glTF-parser.js" />
+    <Content Include="node_modules\three\examples\js\loaders\deprecated\gltf\glTFAnimation.js" />
+    <Content Include="node_modules\three\examples\js\loaders\deprecated\gltf\glTFLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\deprecated\gltf\glTFLoaderUtils.js" />
+    <Content Include="node_modules\three\examples\js\loaders\deprecated\gltf\glTFShaders.js" />
+    <Content Include="node_modules\three\examples\js\loaders\deprecated\gltf\gltfUtilities.js" />
+    <Content Include="node_modules\three\examples\js\loaders\deprecated\SceneLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\FBXLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\GLTFLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\HDRCubeTextureLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\KMZLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\MD2Loader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\MMDLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\MTLLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\NRRDLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\OBJLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\PCDLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\PDBLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\PlayCanvasLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\PLYLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\PVRLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\RGBELoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\sea3d\SEA3D.js" />
+    <Content Include="node_modules\three\examples\js\loaders\sea3d\SEA3DDeflate.js" />
+    <Content Include="node_modules\three\examples\js\loaders\sea3d\SEA3DLegacy.js" />
+    <Content Include="node_modules\three\examples\js\loaders\sea3d\SEA3DLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\sea3d\SEA3DLZMA.js" />
+    <Content Include="node_modules\three\examples\js\loaders\STLLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\SVGLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\TGALoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\TTFLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\UTF8Loader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\VRMLLoader.js" />
+    <Content Include="node_modules\three\examples\js\loaders\VTKLoader.js" />
+    <Content Include="node_modules\three\examples\js\MarchingCubes.js" />
+    <Content Include="node_modules\three\examples\js\math\ColorConverter.js" />
+    <Content Include="node_modules\three\examples\js\math\Lut.js" />
+    <Content Include="node_modules\three\examples\js\MD2Character.js" />
+    <Content Include="node_modules\three\examples\js\MD2CharacterComplex.js" />
+    <Content Include="node_modules\three\examples\js\Mirror.js" />
+    <Content Include="node_modules\three\examples\js\modifiers\BufferSubdivisionModifier.js" />
+    <Content Include="node_modules\three\examples\js\modifiers\ExplodeModifier.js" />
+    <Content Include="node_modules\three\examples\js\modifiers\SimplifyModifier.js" />
+    <Content Include="node_modules\three\examples\js\modifiers\SubdivisionModifier.js" />
+    <Content Include="node_modules\three\examples\js\modifiers\TessellateModifier.js" />
+    <Content Include="node_modules\three\examples\js\MorphAnimation.js" />
+    <Content Include="node_modules\three\examples\js\MorphAnimMesh.js" />
+    <Content Include="node_modules\three\examples\js\nodes\accessors\CameraNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\accessors\ColorsNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\accessors\LightNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\accessors\NormalNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\accessors\PositionNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\accessors\ReflectNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\accessors\ScreenUVNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\accessors\UVNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\AttributeNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\ConstNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\FunctionCallNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\FunctionNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\GLNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\InputNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\inputs\ColorNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\inputs\CubeTextureNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\inputs\FloatNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\inputs\IntNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\inputs\Matrix4Node.js" />
+    <Content Include="node_modules\three\examples\js\nodes\inputs\MirrorNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\inputs\ScreenNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\inputs\TextureNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\inputs\Vector2Node.js" />
+    <Content Include="node_modules\three\examples\js\nodes\inputs\Vector3Node.js" />
+    <Content Include="node_modules\three\examples\js\nodes\inputs\Vector4Node.js" />
+    <Content Include="node_modules\three\examples\js\nodes\materials\PhongNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\materials\PhongNodeMaterial.js" />
+    <Content Include="node_modules\three\examples\js\nodes\materials\StandardNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\materials\StandardNodeMaterial.js" />
+    <Content Include="node_modules\three\examples\js\nodes\math\Math1Node.js" />
+    <Content Include="node_modules\three\examples\js\nodes\math\Math2Node.js" />
+    <Content Include="node_modules\three\examples\js\nodes\math\Math3Node.js" />
+    <Content Include="node_modules\three\examples\js\nodes\math\OperatorNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\NodeBuilder.js" />
+    <Content Include="node_modules\three\examples\js\nodes\NodeLib.js" />
+    <Content Include="node_modules\three\examples\js\nodes\NodeMaterial.js" />
+    <Content Include="node_modules\three\examples\js\nodes\postprocessing\NodePass.js" />
+    <Content Include="node_modules\three\examples\js\nodes\RawNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\TempNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\utils\BlurNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\utils\BumpNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\utils\ColorAdjustmentNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\utils\JoinNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\utils\LuminanceNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\utils\NoiseNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\utils\NormalMapNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\utils\ResolutionNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\utils\RoughnessToBlinnExponentNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\utils\SwitchNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\utils\TimerNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\utils\VelocityNode.js" />
+    <Content Include="node_modules\three\examples\js\nodes\VarNode.js" />
+    <Content Include="node_modules\three\examples\js\objects\ShadowMesh.js" />
+    <Content Include="node_modules\three\examples\js\Ocean.js" />
+    <Content Include="node_modules\three\examples\js\Octree.js" />
+    <Content Include="node_modules\three\examples\js\ParametricGeometries.js" />
+    <Content Include="node_modules\three\examples\js\pmrem\PMREMCubeUVPacker.js" />
+    <Content Include="node_modules\three\examples\js\pmrem\PMREMGenerator.js" />
+    <Content Include="node_modules\three\examples\js\postprocessing\AdaptiveToneMappingPass.js" />
+    <Content Include="node_modules\three\examples\js\postprocessing\BloomPass.js" />
+    <Content Include="node_modules\three\examples\js\postprocessing\BokehPass.js" />
+    <Content Include="node_modules\three\examples\js\postprocessing\ClearPass.js" />
+    <Content Include="node_modules\three\examples\js\postprocessing\CubeTexturePass.js" />
+    <Content Include="node_modules\three\examples\js\postprocessing\DotScreenPass.js" />
+    <Content Include="node_modules\three\examples\js\postprocessing\EffectComposer.js" />
+    <Content Include="node_modules\three\examples\js\postprocessing\FilmPass.js" />
+    <Content Include="node_modules\three\examples\js\postprocessing\GlitchPass.js" />
+    <Content Include="node_modules\three\examples\js\postprocessing\ManualMSAARenderPass.js" />
+    <Content Include="node_modules\three\examples\js\postprocessing\MaskPass.js" />
+    <Content Include="node_modules\three\examples\js\postprocessing\OutlinePass.js" />
+    <Content Include="node_modules\three\examples\js\postprocessing\RenderPass.js" />
+    <Content Include="node_modules\three\examples\js\postprocessing\SavePass.js" />
+    <Content Include="node_modules\three\examples\js\postprocessing\ShaderPass.js" />
+    <Content Include="node_modules\three\examples\js\postprocessing\SMAAPass.js" />
+    <Content Include="node_modules\three\examples\js\postprocessing\TAARenderPass.js" />
+    <Content Include="node_modules\three\examples\js\postprocessing\TexturePass.js" />
+    <Content Include="node_modules\three\examples\js\postprocessing\UnrealBloomPass.js" />
+    <Content Include="node_modules\three\examples\js\PRNG.js" />
+    <Content Include="node_modules\three\examples\js\renderers\CanvasRenderer.js" />
+    <Content Include="node_modules\three\examples\js\renderers\CSS2DRenderer.js" />
+    <Content Include="node_modules\three\examples\js\renderers\CSS3DRenderer.js" />
+    <Content Include="node_modules\three\examples\js\renderers\Projector.js" />
+    <Content Include="node_modules\three\examples\js\renderers\RaytracingRenderer.js" />
+    <Content Include="node_modules\three\examples\js\renderers\RaytracingWorker.js" />
+    <Content Include="node_modules\three\examples\js\renderers\SoftwareRenderer.js" />
+    <Content Include="node_modules\three\examples\js\renderers\SVGRenderer.js" />
+    <Content Include="node_modules\three\examples\js\renderers\WebGLDeferredRenderer.js" />
+    <Content Include="node_modules\three\examples\js\RollerCoaster.js" />
+    <Content Include="node_modules\three\examples\js\ShaderGodRays.js" />
+    <Content Include="node_modules\three\examples\js\ShaderSkin.js" />
+    <Content Include="node_modules\three\examples\js\shaders\BasicShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\BleachBypassShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\BlendShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\BokehShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\BokehShader2.js" />
+    <Content Include="node_modules\three\examples\js\shaders\BrightnessContrastShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\ColorCorrectionShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\ColorifyShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\ConvolutionShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\CopyShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\DigitalGlitch.js" />
+    <Content Include="node_modules\three\examples\js\shaders\DOFMipMapShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\DotScreenShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\EdgeShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\EdgeShader2.js" />
+    <Content Include="node_modules\three\examples\js\shaders\FilmShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\FocusShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\FresnelShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\FXAAShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\GammaCorrectionShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\HorizontalBlurShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\HorizontalTiltShiftShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\HueSaturationShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\KaleidoShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\LuminosityHighPassShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\LuminosityShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\MirrorShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\NormalMapShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\OceanShaders.js" />
+    <Content Include="node_modules\three\examples\js\shaders\ParallaxShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\RGBShiftShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\SepiaShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\SMAAShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\SSAOShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\TechnicolorShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\ToneMapShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\TriangleBlurShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\UnpackDepthRGBAShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\VerticalBlurShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\VerticalTiltShiftShader.js" />
+    <Content Include="node_modules\three\examples\js\shaders\VignetteShader.js" />
+    <Content Include="node_modules\three\examples\js\ShaderTerrain.js" />
+    <Content Include="node_modules\three\examples\js\ShaderToon.js" />
+    <Content Include="node_modules\three\examples\js\SimplexNoise.js" />
+    <Content Include="node_modules\three\examples\js\SkyShader.js" />
+    <Content Include="node_modules\three\examples\js\TimelinerController.js" />
+    <Content Include="node_modules\three\examples\js\TypedArrayUtils.js" />
+    <Content Include="node_modules\three\examples\js\UCSCharacter.js" />
+    <Content Include="node_modules\three\examples\js\utils\GeometryUtils.js" />
+    <Content Include="node_modules\three\examples\js\utils\ImageUtils.js" />
+    <Content Include="node_modules\three\examples\js\utils\ShadowMapViewer.js" />
+    <Content Include="node_modules\three\examples\js\utils\UVsDebug.js" />
+    <Content Include="node_modules\three\examples\js\Volume.js" />
+    <Content Include="node_modules\three\examples\js\VolumeSlice.js" />
+    <Content Include="node_modules\three\examples\js\vr\PaintViveController.js" />
+    <Content Include="node_modules\three\examples\js\vr\ViveController.js" />
+    <Content Include="node_modules\three\examples\js\vr\WebVR.js" />
+    <Content Include="node_modules\three\examples\js\WaterShader.js" />
+    <Content Include="node_modules\three\src\animation\AnimationAction.js" />
+    <Content Include="node_modules\three\src\animation\AnimationClip.js" />
+    <Content Include="node_modules\three\src\animation\AnimationMixer.js" />
+    <Content Include="node_modules\three\src\animation\AnimationObjectGroup.js" />
+    <Content Include="node_modules\three\src\animation\AnimationUtils.js" />
+    <Content Include="node_modules\three\src\animation\KeyframeTrack.js" />
+    <Content Include="node_modules\three\src\animation\KeyframeTrackConstructor.js" />
+    <Content Include="node_modules\three\src\animation\KeyframeTrackPrototype.js" />
+    <Content Include="node_modules\three\src\animation\PropertyBinding.js" />
+    <Content Include="node_modules\three\src\animation\PropertyMixer.js" />
+    <Content Include="node_modules\three\src\animation\tracks\BooleanKeyframeTrack.js" />
+    <Content Include="node_modules\three\src\animation\tracks\ColorKeyframeTrack.js" />
+    <Content Include="node_modules\three\src\animation\tracks\NumberKeyframeTrack.js" />
+    <Content Include="node_modules\three\src\animation\tracks\QuaternionKeyframeTrack.js" />
+    <Content Include="node_modules\three\src\animation\tracks\StringKeyframeTrack.js" />
+    <Content Include="node_modules\three\src\animation\tracks\VectorKeyframeTrack.js" />
+    <Content Include="node_modules\three\src\audio\Audio.js" />
+    <Content Include="node_modules\three\src\audio\AudioAnalyser.js" />
+    <Content Include="node_modules\three\src\audio\AudioContext.js" />
+    <Content Include="node_modules\three\src\audio\AudioListener.js" />
+    <Content Include="node_modules\three\src\audio\PositionalAudio.js" />
+    <Content Include="node_modules\three\src\cameras\Camera.js" />
+    <Content Include="node_modules\three\src\cameras\CubeCamera.js" />
+    <Content Include="node_modules\three\src\cameras\OrthographicCamera.js" />
+    <Content Include="node_modules\three\src\cameras\PerspectiveCamera.js" />
+    <Content Include="node_modules\three\src\cameras\StereoCamera.js" />
+    <Content Include="node_modules\three\src\constants.js" />
+    <Content Include="node_modules\three\src\core\BufferAttribute.js" />
+    <Content Include="node_modules\three\src\core\BufferGeometry.js" />
+    <Content Include="node_modules\three\src\core\Clock.js" />
+    <Content Include="node_modules\three\src\core\DirectGeometry.js" />
+    <Content Include="node_modules\three\src\core\EventDispatcher.js" />
+    <Content Include="node_modules\three\src\core\Face3.js" />
+    <Content Include="node_modules\three\src\core\Geometry.js" />
+    <Content Include="node_modules\three\src\core\InstancedBufferAttribute.js" />
+    <Content Include="node_modules\three\src\core\InstancedBufferGeometry.js" />
+    <Content Include="node_modules\three\src\core\InstancedInterleavedBuffer.js" />
+    <Content Include="node_modules\three\src\core\InterleavedBuffer.js" />
+    <Content Include="node_modules\three\src\core\InterleavedBufferAttribute.js" />
+    <Content Include="node_modules\three\src\core\Layers.js" />
+    <Content Include="node_modules\three\src\core\Object3D.js" />
+    <Content Include="node_modules\three\src\core\Raycaster.js" />
+    <Content Include="node_modules\three\src\core\Uniform.js" />
+    <Content Include="node_modules\three\src\extras\core\Curve.js" />
+    <Content Include="node_modules\three\src\extras\core\CurvePath.js" />
+    <Content Include="node_modules\three\src\extras\core\Font.js" />
+    <Content Include="node_modules\three\src\extras\core\Path.js" />
+    <Content Include="node_modules\three\src\extras\core\PathPrototype.js" />
+    <Content Include="node_modules\three\src\extras\core\Shape.js" />
+    <Content Include="node_modules\three\src\extras\curves\ArcCurve.js" />
+    <Content Include="node_modules\three\src\extras\curves\CatmullRomCurve3.js" />
+    <Content Include="node_modules\three\src\extras\curves\ClosedSplineCurve3.js" />
+    <Content Include="node_modules\three\src\extras\curves\CubicBezierCurve.js" />
+    <Content Include="node_modules\three\src\extras\curves\CubicBezierCurve3.js" />
+    <Content Include="node_modules\three\src\extras\curves\EllipseCurve.js" />
+    <Content Include="node_modules\three\src\extras\curves\LineCurve.js" />
+    <Content Include="node_modules\three\src\extras\curves\LineCurve3.js" />
+    <Content Include="node_modules\three\src\extras\curves\QuadraticBezierCurve.js" />
+    <Content Include="node_modules\three\src\extras\curves\QuadraticBezierCurve3.js" />
+    <Content Include="node_modules\three\src\extras\curves\SplineCurve.js" />
+    <Content Include="node_modules\three\src\extras\curves\SplineCurve3.js" />
+    <Content Include="node_modules\three\src\extras\CurveUtils.js" />
+    <Content Include="node_modules\three\src\extras\helpers\ArrowHelper.js" />
+    <Content Include="node_modules\three\src\extras\helpers\AxisHelper.js" />
+    <Content Include="node_modules\three\src\extras\helpers\BoundingBoxHelper.js" />
+    <Content Include="node_modules\three\src\extras\helpers\BoxHelper.js" />
+    <Content Include="node_modules\three\src\extras\helpers\CameraHelper.js" />
+    <Content Include="node_modules\three\src\extras\helpers\DirectionalLightHelper.js" />
+    <Content Include="node_modules\three\src\extras\helpers\FaceNormalsHelper.js" />
+    <Content Include="node_modules\three\src\extras\helpers\GridHelper.js" />
+    <Content Include="node_modules\three\src\extras\helpers\HemisphereLightHelper.js" />
+    <Content Include="node_modules\three\src\extras\helpers\PointLightHelper.js" />
+    <Content Include="node_modules\three\src\extras\helpers\SkeletonHelper.js" />
+    <Content Include="node_modules\three\src\extras\helpers\SpotLightHelper.js" />
+    <Content Include="node_modules\three\src\extras\helpers\VertexNormalsHelper.js" />
+    <Content Include="node_modules\three\src\extras\objects\ImmediateRenderObject.js" />
+    <Content Include="node_modules\three\src\extras\objects\MorphBlendMesh.js" />
+    <Content Include="node_modules\three\src\extras\SceneUtils.js" />
+    <Content Include="node_modules\three\src\extras\ShapeUtils.js" />
+    <Content Include="node_modules\three\src\geometries\BoxBufferGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\BoxGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\CircleBufferGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\CircleGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\ConeBufferGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\ConeGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\CylinderBufferGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\CylinderGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\DodecahedronBufferGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\DodecahedronGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\EdgesGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\ExtrudeGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\Geometries.js" />
+    <Content Include="node_modules\three\src\geometries\IcosahedronBufferGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\IcosahedronGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\LatheBufferGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\LatheGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\OctahedronBufferGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\OctahedronGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\ParametricBufferGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\ParametricGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\PlaneBufferGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\PlaneGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\PolyhedronBufferGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\PolyhedronGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\RingBufferGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\RingGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\ShapeGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\SphereBufferGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\SphereGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\TetrahedronBufferGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\TetrahedronGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\TextGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\TorusBufferGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\TorusGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\TorusKnotBufferGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\TorusKnotGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\TubeBufferGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\TubeGeometry.js" />
+    <Content Include="node_modules\three\src\geometries\WireframeGeometry.js" />
+    <Content Include="node_modules\three\src\lights\AmbientLight.js" />
+    <Content Include="node_modules\three\src\lights\DirectionalLight.js" />
+    <Content Include="node_modules\three\src\lights\DirectionalLightShadow.js" />
+    <Content Include="node_modules\three\src\lights\HemisphereLight.js" />
+    <Content Include="node_modules\three\src\lights\Light.js" />
+    <Content Include="node_modules\three\src\lights\LightShadow.js" />
+    <Content Include="node_modules\three\src\lights\PointLight.js" />
+    <Content Include="node_modules\three\src\lights\SpotLight.js" />
+    <Content Include="node_modules\three\src\lights\SpotLightShadow.js" />
+    <Content Include="node_modules\three\src\loaders\AnimationLoader.js" />
+    <Content Include="node_modules\three\src\loaders\AudioLoader.js" />
+    <Content Include="node_modules\three\src\loaders\BinaryTextureLoader.js" />
+    <Content Include="node_modules\three\src\loaders\BufferGeometryLoader.js" />
+    <Content Include="node_modules\three\src\loaders\Cache.js" />
+    <Content Include="node_modules\three\src\loaders\CompressedTextureLoader.js" />
+    <Content Include="node_modules\three\src\loaders\CubeTextureLoader.js" />
+    <Content Include="node_modules\three\src\loaders\FontLoader.js" />
+    <Content Include="node_modules\three\src\loaders\ImageLoader.js" />
+    <Content Include="node_modules\three\src\loaders\JSONLoader.js" />
+    <Content Include="node_modules\three\src\loaders\Loader.js" />
+    <Content Include="node_modules\three\src\loaders\LoadingManager.js" />
+    <Content Include="node_modules\three\src\loaders\MaterialLoader.js" />
+    <Content Include="node_modules\three\src\loaders\ObjectLoader.js" />
+    <Content Include="node_modules\three\src\loaders\TextureLoader.js" />
+    <Content Include="node_modules\three\src\loaders\XHRLoader.js" />
+    <Content Include="node_modules\three\src\materials\LineBasicMaterial.js" />
+    <Content Include="node_modules\three\src\materials\LineDashedMaterial.js" />
+    <Content Include="node_modules\three\src\materials\Material.js" />
+    <Content Include="node_modules\three\src\materials\Materials.js" />
+    <Content Include="node_modules\three\src\materials\MeshBasicMaterial.js" />
+    <Content Include="node_modules\three\src\materials\MeshDepthMaterial.js" />
+    <Content Include="node_modules\three\src\materials\MeshLambertMaterial.js" />
+    <Content Include="node_modules\three\src\materials\MeshNormalMaterial.js" />
+    <Content Include="node_modules\three\src\materials\MeshPhongMaterial.js" />
+    <Content Include="node_modules\three\src\materials\MeshPhysicalMaterial.js" />
+    <Content Include="node_modules\three\src\materials\MeshStandardMaterial.js" />
+    <Content Include="node_modules\three\src\materials\MultiMaterial.js" />
+    <Content Include="node_modules\three\src\materials\PointsMaterial.js" />
+    <Content Include="node_modules\three\src\materials\RawShaderMaterial.js" />
+    <Content Include="node_modules\three\src\materials\ShaderMaterial.js" />
+    <Content Include="node_modules\three\src\materials\ShadowMaterial.js" />
+    <Content Include="node_modules\three\src\materials\SpriteMaterial.js" />
+    <Content Include="node_modules\three\src\math\Box2.js" />
+    <Content Include="node_modules\three\src\math\Box3.js" />
+    <Content Include="node_modules\three\src\math\Color.js" />
+    <Content Include="node_modules\three\src\math\Euler.js" />
+    <Content Include="node_modules\three\src\math\Frustum.js" />
+    <Content Include="node_modules\three\src\math\Interpolant.js" />
+    <Content Include="node_modules\three\src\math\interpolants\CubicInterpolant.js" />
+    <Content Include="node_modules\three\src\math\interpolants\DiscreteInterpolant.js" />
+    <Content Include="node_modules\three\src\math\interpolants\LinearInterpolant.js" />
+    <Content Include="node_modules\three\src\math\interpolants\QuaternionLinearInterpolant.js" />
+    <Content Include="node_modules\three\src\math\Line3.js" />
+    <Content Include="node_modules\three\src\math\Math.js" />
+    <Content Include="node_modules\three\src\math\Matrix3.js" />
+    <Content Include="node_modules\three\src\math\Matrix4.js" />
+    <Content Include="node_modules\three\src\math\Plane.js" />
+    <Content Include="node_modules\three\src\math\Quaternion.js" />
+    <Content Include="node_modules\three\src\math\Ray.js" />
+    <Content Include="node_modules\three\src\math\Sphere.js" />
+    <Content Include="node_modules\three\src\math\Spherical.js" />
+    <Content Include="node_modules\three\src\math\Spline.js" />
+    <Content Include="node_modules\three\src\math\Triangle.js" />
+    <Content Include="node_modules\three\src\math\Vector2.js" />
+    <Content Include="node_modules\three\src\math\Vector3.js" />
+    <Content Include="node_modules\three\src\math\Vector4.js" />
+    <Content Include="node_modules\three\src\objects\Bone.js" />
+    <Content Include="node_modules\three\src\objects\Group.js" />
+    <Content Include="node_modules\three\src\objects\LensFlare.js" />
+    <Content Include="node_modules\three\src\objects\Line.js" />
+    <Content Include="node_modules\three\src\objects\LineSegments.js" />
+    <Content Include="node_modules\three\src\objects\LOD.js" />
+    <Content Include="node_modules\three\src\objects\Mesh.js" />
+    <Content Include="node_modules\three\src\objects\Points.js" />
+    <Content Include="node_modules\three\src\objects\RenderObject.js" />
+    <Content Include="node_modules\three\src\objects\Skeleton.js" />
+    <Content Include="node_modules\three\src\objects\SkinnedMesh.js" />
+    <Content Include="node_modules\three\src\objects\Sprite.js" />
+    <Content Include="node_modules\three\src\polyfills.js" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk.js" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib.js" />
+    <Content Include="node_modules\three\src\renderers\shaders\UniformsLib.js" />
+    <Content Include="node_modules\three\src\renderers\shaders\UniformsUtils.js" />
+    <Content Include="node_modules\three\src\renderers\WebGLRenderer.js" />
+    <Content Include="node_modules\three\src\renderers\WebGLRenderTarget.js" />
+    <Content Include="node_modules\three\src\renderers\WebGLRenderTargetCube.js" />
+    <Content Include="node_modules\three\src\renderers\webgl\plugins\LensFlarePlugin.js" />
+    <Content Include="node_modules\three\src\renderers\webgl\plugins\SpritePlugin.js" />
+    <Content Include="node_modules\three\src\renderers\webgl\WebGLBufferRenderer.js" />
+    <Content Include="node_modules\three\src\renderers\webgl\WebGLCapabilities.js" />
+    <Content Include="node_modules\three\src\renderers\webgl\WebGLClipping.js" />
+    <Content Include="node_modules\three\src\renderers\webgl\WebGLExtensions.js" />
+    <Content Include="node_modules\three\src\renderers\webgl\WebGLGeometries.js" />
+    <Content Include="node_modules\three\src\renderers\webgl\WebGLIndexedBufferRenderer.js" />
+    <Content Include="node_modules\three\src\renderers\webgl\WebGLLights.js" />
+    <Content Include="node_modules\three\src\renderers\webgl\WebGLObjects.js" />
+    <Content Include="node_modules\three\src\renderers\webgl\WebGLProgram.js" />
+    <Content Include="node_modules\three\src\renderers\webgl\WebGLPrograms.js" />
+    <Content Include="node_modules\three\src\renderers\webgl\WebGLProperties.js" />
+    <Content Include="node_modules\three\src\renderers\webgl\WebGLShader.js" />
+    <Content Include="node_modules\three\src\renderers\webgl\WebGLShadowMap.js" />
+    <Content Include="node_modules\three\src\renderers\webgl\WebGLState.js" />
+    <Content Include="node_modules\three\src\renderers\webgl\WebGLTextures.js" />
+    <Content Include="node_modules\three\src\renderers\webgl\WebGLUniforms.js" />
+    <Content Include="node_modules\three\src\scenes\Fog.js" />
+    <Content Include="node_modules\three\src\scenes\FogExp2.js" />
+    <Content Include="node_modules\three\src\scenes\Scene.js" />
+    <Content Include="node_modules\three\src\textures\CanvasTexture.js" />
+    <Content Include="node_modules\three\src\textures\CompressedTexture.js" />
+    <Content Include="node_modules\three\src\textures\CubeTexture.js" />
+    <Content Include="node_modules\three\src\textures\DataTexture.js" />
+    <Content Include="node_modules\three\src\textures\DepthTexture.js" />
+    <Content Include="node_modules\three\src\textures\Texture.js" />
+    <Content Include="node_modules\three\src\textures\VideoTexture.js" />
+    <Content Include="node_modules\three\src\Three.js" />
+    <Content Include="node_modules\three\src\Three.Legacy.js" />
+    <Content Include="packages.config" />
+    <Content Include="test\webgl_shaders_sky.html" />
+    <Content Include="tsconfig.json" />
+    <Content Include="package.json" />
+    <Content Include="node_modules\three\bower.json" />
+    <Content Include="node_modules\three\examples\fonts\droid\droid_sans_bold.typeface.json" />
+    <Content Include="node_modules\three\examples\fonts\droid\droid_sans_mono_regular.typeface.json" />
+    <Content Include="node_modules\three\examples\fonts\droid\droid_sans_regular.typeface.json" />
+    <Content Include="node_modules\three\examples\fonts\droid\droid_serif_bold.typeface.json" />
+    <Content Include="node_modules\three\examples\fonts\droid\droid_serif_regular.typeface.json" />
+    <Content Include="node_modules\three\examples\fonts\droid\NOTICE" />
+    <Content Include="node_modules\three\examples\fonts\gentilis_bold.typeface.json" />
+    <Content Include="node_modules\three\examples\fonts\gentilis_regular.typeface.json" />
+    <Content Include="node_modules\three\examples\fonts\helvetiker_bold.typeface.json" />
+    <Content Include="node_modules\three\examples\fonts\helvetiker_regular.typeface.json" />
+    <Content Include="node_modules\three\examples\fonts\LICENSE" />
+    <Content Include="node_modules\three\examples\fonts\optimer_bold.typeface.json" />
+    <Content Include="node_modules\three\examples\fonts\optimer_regular.typeface.json" />
+    <Content Include="node_modules\three\examples\fonts\README" />
+    <Content Include="node_modules\three\examples\fonts\ttf\kenpixel.ttf" />
+    <Content Include="node_modules\three\examples\js\libs\zlib_and_gzip.min.js.map" />
+    <Content Include="node_modules\three\LICENSE" />
+    <Content Include="node_modules\three\package.json" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\alphamap_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\alphamap_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\alphatest_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\aomap_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\aomap_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\beginnormal_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\begin_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\bsdfs.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\bumpmap_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\clipping_planes_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\clipping_planes_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\clipping_planes_pars_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\clipping_planes_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\color_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\color_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\color_pars_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\color_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\common.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\cube_uv_reflection_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\defaultnormal_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\displacementmap_pars_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\displacementmap_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\emissivemap_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\emissivemap_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\encodings_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\encodings_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\envmap_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\envmap_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\envmap_pars_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\envmap_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\fog_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\fog_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\lightmap_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\lightmap_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\lights_lambert_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\lights_pars.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\lights_phong_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\lights_phong_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\lights_physical_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\lights_physical_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\lights_template.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\logdepthbuf_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\logdepthbuf_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\logdepthbuf_pars_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\logdepthbuf_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\map_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\map_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\map_particle_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\map_particle_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\metalnessmap_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\metalnessmap_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\morphnormal_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\morphtarget_pars_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\morphtarget_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\normalmap_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\normal_flip.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\normal_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\packing.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\premultiplied_alpha_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\project_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\roughnessmap_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\roughnessmap_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\shadowmap_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\shadowmap_pars_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\shadowmap_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\shadowmask_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\skinbase_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\skinning_pars_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\skinning_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\skinnormal_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\specularmap_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\specularmap_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\tonemapping_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\tonemapping_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\uv2_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\uv2_pars_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\uv2_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\uv_pars_fragment.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\uv_pars_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\uv_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderChunk\worldpos_vertex.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\cube_frag.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\cube_vert.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\depth_frag.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\depth_vert.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\distanceRGBA_frag.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\distanceRGBA_vert.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\equirect_frag.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\equirect_vert.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\linedashed_frag.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\linedashed_vert.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\meshbasic_frag.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\meshbasic_vert.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\meshlambert_frag.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\meshlambert_vert.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\meshphong_frag.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\meshphong_vert.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\meshphysical_frag.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\meshphysical_vert.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\normal_frag.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\normal_vert.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\points_frag.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\points_vert.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\shadow_frag.glsl" />
+    <Content Include="node_modules\three\src\renderers\shaders\ShaderLib\shadow_vert.glsl" />
+    <Content Include="node_modules\%40types\three\package.json" />
+    <Content Include="node_modules\%40types\three\README.md" />
+    <Content Include="node_modules\%40types\three\types-metadata.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="index.html" />
+    <TypeScriptCompile Include="node_modules\%40types\three\detector.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40types\three\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40types\three\three-canvasrenderer.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40types\three\three-copyshader.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40types\three\three-css3drenderer.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40types\three\three-editorcontrols.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40types\three\three-effectcomposer.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40types\three\three-FirstPersonControls.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40types\three\three-maskpass.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40types\three\three-orbitcontrols.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40types\three\three-orthographictrackballcontrols.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40types\three\three-projector.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40types\three\three-renderpass.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40types\three\three-shaderpass.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40types\three\three-trackballcontrols.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40types\three\three-transformcontrols.d.ts" />
+    <TypeScriptCompile Include="src\app.ts" />
+    <TypeScriptCompile Include="src\Applet3D.ts" />
+    <TypeScriptCompile Include="src\Bullet.ts" />
+    <TypeScriptCompile Include="src\Helpers\MathHelper.ts" />
+    <TypeScriptCompile Include="src\Helpers\Vector3Helper.ts" />
+    <TypeScriptCompile Include="src\HUD.ts" />
+    <TypeScriptCompile Include="src\Jflight.ts" />
+    <TypeScriptCompile Include="src\Missile.ts" />
+    <TypeScriptCompile Include="src\Physics\PhysicsState.ts" />
+    <TypeScriptCompile Include="src\Plane.ts" />
+    <TypeScriptCompile Include="src\THREEx.KeyboardState.ts" />
+    <TypeScriptCompile Include="src\THREEx.WindowResize.ts" />
+    <TypeScriptCompile Include="src\Wing.ts" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\Math\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63185</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:63185/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています。それらのパッケージをダウンロードするには、[NuGet パッケージの復元] を使用します。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。見つからないファイルは {0} です。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.2\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.2\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

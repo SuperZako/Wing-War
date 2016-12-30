@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "amd",
+
+    // 最初から有効にしないときつい
+    "strictNullChecks": true,
+
+    // 不明な型禁止
+    "noImplicitAny": true,
+
+    // returnで返すすべての型を検査
+    "noImplicitReturns": true,
+
+    // 不明なthis禁止
+    "noImplicitThis": true,
+
+    // 使わないパラメータ禁止、プレースホルダはアンダースコアをプレフィクスに付ける
+    "noUnusedParameters": true,
+
+    // 使わない変数禁止 (注意：使用している変数でもエラーが出るので使用中止)
+    "noUnusedLocals": true,
+
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "outFile": "built/jflight.js",
+    "emitBOM": true
+  },
+
+  "include": [
+    "src/**/*.ts",
+    "test/**/*.ts"
+  ],
+
+  "exclude": [
+    "node_modules",
+    "wwwroot"
+  ]
+}
