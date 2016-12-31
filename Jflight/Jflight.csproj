@@ -605,6 +605,8 @@
     <Content Include="packages.config" />
     <TypeScriptCompile Include="node_modules\%40types\dat-gui\index.d.ts" />
     <TypeScriptCompile Include="src\Sky\SkyShader.ts" />
+    <Content Include="test\clouds.html" />
+    <Content Include="test\cloud10.png" />
     <Content Include="test\js\controls\OrbitControls.js" />
     <Content Include="test\js\Detector.js" />
     <Content Include="test\js\libs\dat.gui.min.js" />
@@ -790,6 +792,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\Math\" />
+    <Folder Include="test\clouds\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

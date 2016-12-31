@@ -2402,6 +2402,7 @@ var Main;
     }
     function animate() {
         requestAnimationFrame(animate);
+        // 
         update();
         render();
     }
