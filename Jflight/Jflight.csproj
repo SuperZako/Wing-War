@@ -604,6 +604,7 @@
     <Content Include="node_modules\three\src\Three.Legacy.js" />
     <Content Include="packages.config" />
     <TypeScriptCompile Include="node_modules\%40types\dat-gui\index.d.ts" />
+    <TypeScriptCompile Include="src\Sky\Cloud.ts" />
     <TypeScriptCompile Include="src\Sky\SkyShader.ts" />
     <Content Include="test\clouds.html" />
     <Content Include="test\cloud10.png" />

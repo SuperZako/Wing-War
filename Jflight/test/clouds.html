@@ -108,7 +108,10 @@
 
             geometry = new THREE.Geometry();
 
-            var texture = THREE.ImageUtils.loadTexture('cloud10.png', null, animate);
+            // instantiate a loader
+            var loader = new THREE.TextureLoader();
+            var texture = loader.load('cloud10.png', null, animate);
+            // var texture = THREE.ImageUtils.loadTexture('cloud10.png', null, animate);
             texture.magFilter = THREE.LinearMipMapLinearFilter;
             texture.minFilter = THREE.LinearMipMapLinearFilter;
 
